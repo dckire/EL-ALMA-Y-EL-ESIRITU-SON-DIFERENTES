@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Bíblico: El Alma y el Espíritu son Diferentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2C5530;
+            --secondary: #4A7C59;
+            --accent: #8FBC8F;
+            --gold: #D4AF37;
+            --light: #F5F7FA;
+            --dark: #1A2F1A;
+            --text: #2C3E50;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-subtext {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 85, 48, 0.9), rgba(26, 47, 26, 0.9)), url('https://images.unsplash.com/photo-1542401886-65d6c61db217?ixlib=rb-4.0.3') center/cover;
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Definition Section */
+        .definition {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .definition-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .definition-point {
+            margin-bottom: 3rem;
+        }
+
+        .definition-point h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .definition-point h3 i {
+            color: var(--accent);
+        }
+
+        .definition-point p {
+            margin-bottom: 1.5rem;
+        }
+
+        .bible-verse {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .verse-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .verse-reference {
+            font-weight: bold;
+            color: var(--primary);
+            text-align: right;
+        }
+
+        /* Trinity Section */
+        .trinity {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+
+        .trinity-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .trinity-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--accent);
+        }
+
+        .trinity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .trinity-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .trinity-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .trinity-card p {
+            margin-bottom: 1.5rem;
+        }
+
+        .trinity-verse {
+            font-style: italic;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Destiny Section */
+        .destiny {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .destiny-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .destiny-card {
+            background-color: var(--light);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .destiny-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .destiny-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .destiny-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .destiny-card p {
+            margin-bottom: 1.5rem;
+        }
+
+        .destiny-verse {
+            font-style: italic;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Conclusion Section */
+        .conclusion {
+            padding: 5rem 0;
+            background-color: var(--light);
+            text-align: center;
+        }
+
+        .conclusion-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .conclusion-icon {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .trinity-content, .destiny-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-bible"></i>
+                    <div>
+                        <div class="logo-text">Estudio Bíblico</div>
+                        <div class="logo-subtext">Mateo 28:19,20</div>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#definicion">Definición</a></li>
+                        <li><a href="#trinidad">Los Tres Elementos</a></li>
+                        <li><a href="#destino">Destino de Cada Uno</a></li>
+                        <li><a href="#conclusion">Conclusión</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-title">EL ALMA Y EL ESPÍRITU SON DIFERENTES</div>
+            <h1>Estudio Bíblico</h1>
+            <p>Un análisis de las Sagradas Escrituras sobre la naturaleza del ser humano</p>
+        </div>
+    </section>
+
+    <!-- Definition Section -->
+    <section id="definicion" class="definition">
+        <div class="container">
+            <div class="section-title">
+                <h2>Definición Bíblica</h2>
+                <p>Lo que la Palabra de Dios nos enseña sobre el alma y el espíritu</p>
+            </div>
+
+            <div class="definition-content">
+                <div class="definition-point">
+                    <h3><i class="fas fa-question-circle"></i> ¿Qué es el Alma?</h3>
+                    <p>El alma es el factor del hombre que piensa, siente y tiene esperanza.</p>
+                    
+                    <div class="bible-verse">
+                        <div class="verse-text">"Y así que él hubo acabado de hablar con Saúl, el alma de Jonathán fue ligada con la de David, y amólo Jonathán como a su alma."</div>
+                        <div class="verse-reference">1 Samuel 18:1</div>
+                    </div>
+                </div>
+
+                <div class="definition-point">
+                    <h3>❤️</i> El Alma y el Espíritu son Diferentes</h3>
+                    <p>La Biblia claramente distingue entre espíritu, alma y cuerpo como tres elementos distintos del ser humano.</p>
+                    
+                    <div class="bible-verse">
+                        <div class="verse-text">"Y el Dios de paz os santifique en todo; para que vuestro espíritu y alma y cuerpo sea guardado entero sin reprensión para la venida de nuestro Señor Jesucristo."</div>
+                        <div class="verse-reference">1 Tesalonicenses 5:23</div>
+                    </div>
+                </div>
+
+                <div class="definition-point">
+                    <h3><i class="fas fa-cross"></i> Las Palabras de Cristo</h3>
+                    <p>Jesús mismo distingue entre el cuerpo y el alma, mostrando que son elementos separados.</p>
+                    
+                    <div class="bible-verse">
+                        <div class="verse-text">"Y no temáis a los que matan el cuerpo, mas al alma no pueden matar; temed antes a aquel que puede destruir el alma y el cuerpo en el infierno."</div>
+                        <div class="verse-reference">Mateo 10:28</div>
+                    </div>
+
+                    <div class="bible-verse">
+                        <div class="verse-text">"En vuestra paciencia poseeréis vuestras almas."</div>
+                        <div class="verse-reference">Lucas 21:19</div>
+                    </div>
+                </div>
+
+                <div class="definition-point">
+                    <h3>📖</i> La Palabra de Dios los Separa</h3>
+                    <p>La Biblia menciona el alma y después el espíritu, separando una cosa de la otra.</p>
+                    
+                    <div class="bible-verse">
+                        <div class="verse-text">"Porque la palabra de Dios es viva y eficaz, y más penetrante que toda espada de dos filos: y que alcanza hasta partir el alma, y aún el espíritu, y las coyunturas y tuétanos, y discierne los pensamientos y las intenciones del corazón."</div>
+                        <div class="verse-reference">Hebreos 4:12</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trinity Section -->
+    <section id="trinidad" class="trinity">
+        <div class="container">
+            <div class="section-title">
+                <h2>Los Tres Elementos del Ser Humano</h2>
+                <p>Cada uno tiene su función y naturaleza diferente</p>
+            </div>
+
+            <div class="trinity-content">
+                <div class="trinity-card">
+                    <div class="trinity-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>El Alma</h3>
+                    <p>Es el factor que piensa, siente y tiene esperanza. Es la que obtiene la salvación.</p>
+                    <div class="trinity-verse">
+                        "Obteniendo el fin de vuestra fe, que es la salud de vuestras almas."<br>
+                        1 Pedro 1:9
+                    </div>
+                </div>
+
+                <div class="trinity-card">
+                    <div class="trinity-icon">
+                        🕯️</i>
+                    </div>
+                    <h3>El Espíritu</h3>
+                    <p>Es diferente al alma. Regresa a Dios después de la muerte.</p>
+                    <div class="trinity-verse">
+                        "Y el espíritu se vuelva a Dios que lo dio."<br>
+                        Eclesiastés 12:7
+                    </div>
+                </div>
+
+                <div class="trinity-card">
+                    <div class="trinity-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>El Cuerpo</h3>
+                    <p>Es temporal, vuelve al polvo. No puede heredar el reino de Dios.</p>
+                    <div class="trinity-verse">
+                        "La carne y la sangre no pueden heredar el reino de Dios."<br>
+                        1 Corintios 15:50
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destiny Section -->
+    <section id="destino" class="destiny">
+        <div class="container">
+            <div class="section-title">
+                <h2>El Destino de Cada Elemento</h2>
+                <p>Lo que sucede con cada parte del ser humano después de la muerte</p>
+            </div>
+
+            <div class="destiny-content">
+                <div class="destiny-card">
+                    <div class="destiny-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>El Alma - Será Salva</h3>
+                    <p>El alma es la que recibe la salvación y la purificación.</p>
+                    
+                    <div class="bible-verse">
+                        <div class="verse-text">"Por lo cual, dejando toda inmundicia y superfluidad de malicia, recibid con mansedumbre la palabra ingerida, la cual puede hacer salvas vuestras almas."</div>
+                        <div class="verse-reference">Santiago 1:21</div>
+                    </div>
+
+                    <div class="bible-verse">
+                        <div class="verse-text">"Habiendo purificado vuestras almas en la obediencia de la verdad..."</div>
+                        <div class="verse-reference">1 Pedro 1:22</div>
+                    </div>
+                </div>
+
+                <div class="destiny-card">
+                    <div class="destiny-icon">
+                        🕯️</i>
+                    </div>
+                    <h3>El Espíritu - Vuelve a Dios</h3>
+                    <p>Después de la muerte, el espíritu regresa a Dios que lo dio.</p>
+                    
+                    <div class="bible-verse">
+                        <div class="verse-text">"Y el polvo se torne a la tierra, como era, y el espíritu se vuelva a Dios que lo dio."</div>
+                        <div class="verse-reference">Eclesiastés 12:7</div>
+                    </div>
+                </div>
+
+                <div class="destiny-card">
+                    <div class="destiny-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>El Cuerpo - Vuelve al Polvo</h3>
+                    <p>El cuerpo físico muere y regresa a la tierra. El pecado fue condenado en el cuerpo.</p>
+                    
+                    <div class="bible-verse">
+                        <div class="verse-text">"¡Miserable hombre de mí! ¿Quién me librará del cuerpo de esta muerte?"</div>
+                        <div class="verse-reference">Romanos 7:24</div>
+                    </div>
+
+                    <div class="bible-verse">
+                        <div class="verse-text">"Pues polvo eres, y al polvo serás tornado."</div>
+                        <div class="verse-reference">Génesis 3:19</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <div class="definition-point">
+                    <h3><i class="fas fa-tombstone"></i> El Alma Espera en el Sepulcro</h3>
+                    <p>Las Escrituras nos muestran que el alma espera en el sepulcro hasta la resurrección.</p>
+                    
+                    <div class="bible-verse">
+                        <div class="verse-text">"Oh Jehová, hiciste subir mi alma del sepulcro; disteme vida, para que no descendiese a la sepultura."</div>
+                        <div class="verse-reference">Salmo 30:3</div>
+                    </div>
+
+                    <div class="bible-verse">
+                        <div class="verse-text">"No os maravilléis de esto; porque vendrá hora, cuando todos los que están en los sepulcros oirán su voz."</div>
+                        <div class="verse-reference">Juan 5:28</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="conclusion">
+        <div class="container">
+            <div class="conclusion-content">
+                <div class="conclusion-icon">
+                    <i class="fas fa-bible"></i>
+                </div>
+                <h2>Conclusión</h2>
+                <p>La Biblia claramente enseña que el alma y el espíritu son diferentes, así como también el cuerpo. Cada uno tiene su función y destino específico:</p>
+                
+                <div style="text-align: left; max-width: 600px; margin: 2rem auto;">
+                    <ul style="list-style-type: none;">
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-heart" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            <strong>El Alma</strong> - Es la que piensa, siente y será salva (Santiago 1:21)
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-dove" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            <strong>El Espíritu</strong> - Es diferente al alma y vuelve a Dios (Eclesiastés 12:7)
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-user" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            <strong>El Cuerpo</strong> - Vuelve al polvo y no hereda el reino (1 Corintios 15:50)
+                        </li>
+                    </ul>
+                </div>
+
+                <p>Estos tres elementos - espíritu, alma y cuerpo - son distintos según la Palabra de Dios, y cada uno tiene su propósito y destino eterno.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Estudio Bíblico</h3>
+                    <p>El Alma y el Espíritu son Diferentes. Un análisis basado en las Sagradas Escrituras.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#definicion">Definición</a></li>
+                        <li><a href="#trinidad">Los Tres Elementos</a></li>
+                        <li><a href="#destino">Destino de Cada Uno</a></li>
+                        <li><a href="#conclusion">Conclusión</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Información</h3>
+            
+                    <p><i class="fas fa-bible"></i> Estudio basado en las Escrituras</p>
+                    <p><i class="fas fa-cross"></i> Doctrina Apostólica</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 MATEO 18:19,20. Todos los derechos reservados. | Estudio Bíblico</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe content elements
+        document.querySelectorAll('.bible-verse, .definition-point, .trinity-card, .destiny-card').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
